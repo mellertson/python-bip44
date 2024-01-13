@@ -14,6 +14,10 @@ def graphene_coin_path_by_index(index: int) -> Tuple[int, int]:
     return (48 + HARDENED_INDEX, index + HARDENED_INDEX)
 
 
+GRAPHENE_COIN_PATHS = {
+    "V12": graphene_coin_path_by_index(5000),
+}
+
 COIN_PATHS = {
     "BTC": coin_path_by_index(),
     "TESTNET": coin_path_by_index(1),
@@ -25,5 +29,5 @@ COIN_PATHS = {
     "SDN": coin_path_by_index(809),
     "ASTR": coin_path_by_index(810),
     "ADA": coin_path_by_index(1815),
-    "V12": graphene_coin_path_by_index(5000),
 }
+COIN_PATHS.update(GRAPHENE_COIN_PATHS)
