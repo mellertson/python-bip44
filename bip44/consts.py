@@ -9,6 +9,10 @@ def coin_path_by_index(index: int = 0) -> Tuple[int, int]:
     # Full list is at https://github.com/satoshilabs/slips/blob/master/slip-0044.md#registered-coin-types
     return (44 + HARDENED_INDEX, index + HARDENED_INDEX)
 
+def graphene_coin_path_by_index(index: int) -> Tuple[int, int]:
+    # Full list is at https://github.com/satoshilabs/slips/blob/master/slip-0048.md#registered-networks
+    return (48 + HARDENED_INDEX, index + HARDENED_INDEX)
+
 
 COIN_PATHS = {
     "BTC": coin_path_by_index(),
@@ -21,4 +25,5 @@ COIN_PATHS = {
     "SDN": coin_path_by_index(809),
     "ASTR": coin_path_by_index(810),
     "ADA": coin_path_by_index(1815),
+    "V12": coin_path_by_index(5000),
 }
