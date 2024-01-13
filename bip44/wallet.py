@@ -3,7 +3,7 @@ from typing import Iterable, Tuple, Union
 from bip32 import BIP32, HARDENED_INDEX
 from mnemonic import Mnemonic
 
-from .consts import COIN_PATHS, coin_path_by_index
+from .consts import COIN_PATHS, GRAPHENE_COIN_INDICES, coin_path_by_index, graphene_coin_path_by_index
 
 __all__ = ("Wallet",)
 
@@ -72,7 +72,10 @@ class Wallet:
         if isinstance(coin, str):
             coin_path = COIN_PATHS[coin.upper()]
         else:
-            coin_path = coin_path_by_index(coin)
+            if coin in GRAPHENE_COIN_INDICES:
+                coin_path = graphene_coin_path_by_index(coin)
+            else:
+                coin_path = coin_path_by_index(coin)
 
         account_path = (account + HARDENED_INDEX, change, address_index)
         path = coin_path + account_path
