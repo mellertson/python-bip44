@@ -25,5 +25,5 @@ COIN_PATHS = {
     "SDN": coin_path_by_index(809),
     "ASTR": coin_path_by_index(810),
     "ADA": coin_path_by_index(1815),
-    "V12": coin_path_by_index(5000),
+    "V12": graphene_coin_path_by_index(5000),
 }
